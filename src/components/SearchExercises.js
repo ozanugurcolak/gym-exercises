@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 import { exerciseOptions, fetchData } from '../utils/fetchData';
-import HorizontalScrollbar from './HorizontalScrollbar';
+import HorizontalScrollComp from './HorizontalScrollComp';
 
 
 
-const SearchExercises = ({set,setExercises,setBodyPart,bodyPart}) => {
+const SearchExercises = ({setExercises,setBodyPart,bodyPart}) => {
 
 
     const [search, setSearch] = useState('');
@@ -76,7 +76,7 @@ const SearchExercises = ({set,setExercises,setBodyPart,bodyPart}) => {
                 </Button>
             </Box>
             <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
-                <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart ={setBodyPart} />
+                <HorizontalScrollComp data={bodyParts} setBodyPart={setBodyPart} bodyPart={bodyPart} isBodyParts/>
             </Box>
         </Stack>
     )

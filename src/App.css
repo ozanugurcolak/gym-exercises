@@ -27,13 +27,17 @@ body {
   border-radius: 4px;
   position: absolute;
   bottom: -20px;
-  right: 80px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
+  z-index: 10;
 }
 
 .right-arrow {
   right: 140px;
+}
+
+.left-arrow {
+  right: 80px;
 }
 
 .right-arrow:hover,
@@ -44,11 +48,8 @@ body {
 .react-horizontal-scrolling-menu--wrapper {
   display: flex;
   overflow-x: auto;
-  /* Yatay kaydırma etkinleştirildi */
   white-space: nowrap;
-  /* Satır sarması engellendi */
   scroll-behavior: smooth;
-  /* Akıcı kaydırma hareketi sağlandı */
 }
 
 .detail-image {
@@ -108,7 +109,7 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width: 1200px) {
   .detail-image {
     width: 300px;
     height: 300px;
@@ -121,6 +122,7 @@ body {
   .left-arrow,
   .right-arrow {
     position: static !important;
+    z-index: 10;
   }
 
   .hero-banner-img {
@@ -137,18 +139,48 @@ body {
   }
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width: 400px) {
   .exercise-card {
     width: 280px;
   }
 }
+
 .horizontal-scroll-wrapper {
   display: flex;
-  overflow-x: auto; /* Yatay kaydırma etkinleştirildi */
-  white-space: nowrap; /* Satır sarması engellendi */
+  overflow-x: auto;
+  white-space: nowrap;
   scroll-behavior: smooth;
 }
 
+.horizontal-scroll-wrapper {
+  display: flex;                
+  overflow-x: auto;             
+  white-space: nowrap;          
+  scroll-behavior: smooth;      
+  -webkit-overflow-scrolling: touch; 
+  padding-bottom: 20px; /* Kaydırma çubuğunu aşağıya almak için alt boşluk ekliyoruz */
+}
+
 .horizontal-scroll-item {
-  display: inline-block; /* Öğeleri yatayda hizalar */
+  display: inline-block;        
+  margin: 0 10px;               
+  flex-shrink: 0;               
+}
+
+/* Kaydırma çubuğunun genişliğini ayarlayın */
+::-webkit-scrollbar {
+  height: 12px; /* Yatay kaydırma çubuğunun yüksekliğini arttırın */
+}
+
+/* Kaydırma çubuğunun renk ve stilini ayarlayın */
+::-webkit-scrollbar-thumb {
+  background-color: #FF2625; /* Kaydırma çubuğu rengi */
+  border-radius: 10px; /* Yuvarlak köşeler */
+  border: 3px solid #FFFAFB; /* Kaydırma çubuğu çevresinde boşluk ve arka plan rengi */
+}
+
+/* Kaydırma çubuğu arka planı */
+::-webkit-scrollbar-track {
+  background-color: #FFFAFB; /* Arka plan rengi */
+  border-radius: 10px;
 }
